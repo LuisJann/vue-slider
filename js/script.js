@@ -43,7 +43,8 @@ createApp({
                         text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
                     }
                 ],
-                currentSlide: 0
+                currentSlide:0,
+                hover:false,
             }
     },
     methods:{
@@ -63,6 +64,16 @@ createApp({
         },
         showSlide: function(click){
             this.currentSlide = click;
-        }
-    }
+        },
+        intervalTimer: function(hover){
+            if(hover===true){
+                this.timer = setInterval(this.nextSlide, 2500);
+            }else{
+                clearInterval(this.interval);
+            }
+        },
+    },
+    created(){
+        this.intervalTimer();
+    },
 }).mount("#app")

@@ -16,7 +16,9 @@
         <div class="container" >
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
+                <div class="item"
+                    @mouseover="hover = true" 
+                    @mouseleave="hover = false">
                     <img :src="slides[currentSlide].image" alt="slides[currentSlide].title" />
                     <div class="text">
                         <h3>{{slides[currentSlide].title}}</h3>
