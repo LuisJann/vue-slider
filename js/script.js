@@ -44,7 +44,6 @@ createApp({
                     }
                 ],
                 currentSlide:0,
-                hover:false,
             }
     },
     methods:{
@@ -65,15 +64,13 @@ createApp({
         showSlide: function(click){
             this.currentSlide = click;
         },
-        intervalTimer: function(hover){
-            if(hover===true){
-                this.timer = setInterval(this.nextSlide, 2500);
-            }else{
-                clearInterval(this.interval);
-            }
+        intervalTimer: function(){
+            this.timer = setInterval(this.nextSlide, 2500);
+            console.log("timer");
         },
-    },
-    created(){
-        this.intervalTimer();
+        stopIntervalTimer: function(){
+            clearInterval(this.timer);
+            console.log("stop");
+        }
     },
 }).mount("#app")
